@@ -47,7 +47,9 @@ namespace My.Website
 {
     public class ProductPageController : RenderController
     {
-        public ProductPageController(ILogger<ProductPageController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor)
+        public ProductPageController(ILogger<ProductPageController> logger, 
+                                     ICompositeViewEngine compositeViewEngine, 
+                                     IUmbracoContextAccessor umbracoContextAccessor)
             : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
         }
@@ -90,7 +92,9 @@ namespace My.Website
 {
     public class ProductPageController : RenderController
     {
-        public ProductPageController(ILogger<ProductPageController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor)
+        public ProductPageController(ILogger<ProductPageController> logger, 
+                                     ICompositeViewEngine compositeViewEngine, 
+                                     IUmbracoContextAccessor umbracoContextAccessor)
             : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
         }
@@ -173,7 +177,9 @@ In most cases you will need your custom model to build upon the underlying exist
 public class MyProductViewModel : PublishedContentWrapped
 {
     // The PublishedContentWrapped accepts an IPublishedContent item as a constructor
-    public MyProductViewModel(IPublishedContent content, IPublishedValueFallback publishedValueFallback) : base(content, publishedValueFallback)
+    public MyProductViewModel(IPublishedContent content, 
+                              IPublishedValueFallback publishedValueFallback) 
+      : base(content, publishedValueFallback)
     {
     }
 
@@ -191,7 +197,9 @@ Using Modelsbuilder you will find that all the generated models have a construct
 public class MyProductViewModel : ProductPage
 {
     // The ProductPage model accepts an IPublishedContent item as a constructor
-    public MyProductViewModel(IPublishedContent content, IPublishedValueFallback publishedValueFallback) : base(content, publishedValueFallback)
+    public MyProductViewModel(IPublishedContent content, 
+                              IPublishedValueFallback publishedValueFallback) 
+      : base(content, publishedValueFallback)
     {
     }
 
@@ -225,7 +233,11 @@ namespace My.Website
     {
         private readonly IVariationContextAccessor _variationContextAccessor;
         private readonly ServiceContext _serviceContext;
-        public ProductPageController(ILogger<ProductPageController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor, IVariationContextAccessor variationContextAccessor, ServiceContext context)
+        public ProductPageController(ILogger<ProductPageController> logger, 
+                                     ICompositeViewEngine compositeViewEngine, 
+                                     IUmbracoContextAccessor umbracoContextAccessor, 
+                                     IVariationContextAccessor variationContextAccessor, 
+                                     ServiceContext context)
             : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
             _variationContextAccessor = variationContextAccessor;
@@ -308,10 +320,13 @@ Injecting services into your controller constructors is possible with Umbraco's 
 For example:
 
 ```csharp
-    public class ProductListingPageController : RenderController
-    {
+public class ProductListingPageController : RenderController
+{
     private readonly IMadeUpProductService _madeUpProductService;
-    public ProductListingPageController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor, IMadeUpProductService madeUpProductService)
+    public ProductListingPageController(ILogger<RenderController> logger, 
+                                        ICompositeViewEngine compositeViewEngine, 
+                                        IUmbracoContextAccessor umbracoContextAccessor, 
+                                        IMadeUpProductService madeUpProductService)
     {
         _madeUpProductService = madeUpProductService;
     }
@@ -371,7 +386,9 @@ Or inherit from `RenderController`
 ```csharp
 public class MyRenderController : RenderController
 {
-    public MyRenderController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) 
+    public MyRenderController(ILogger<RenderController> logger, 
+                              ICompositeViewEngine compositeViewEngine, 
+                              IUmbracoContextAccessor umbracoContextAccessor) 
         : base(logger, compositeViewEngine, umbracoContextAccessor)
     {
     }
